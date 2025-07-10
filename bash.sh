@@ -13,6 +13,8 @@ if grep -q "my-app" "$1" ; then
 
   docker push khachatryanhakob/dockerf1:latest
 
+  docker rm -f my-container 2>/dev/null || true
+
   docker run -d -p 8081:8081 --name my-container khachatryanhakob/dockerf1:latest
 
 else
