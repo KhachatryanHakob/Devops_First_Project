@@ -15,7 +15,7 @@ if grep -q "my-app" "$1" ; then
 
   docker rm -f my-container 2>/dev/null || true
 
-  docker run -d -p 8081:8081 --name my-container khachatryanhakob/dockerf1:latest
+  docker-compose -f "$1" up -d --build
 
 else
   echo "there is not my-app"
